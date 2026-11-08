@@ -15,6 +15,12 @@
 > `time_scale_factor` in `config/line_parameters.yaml` rescales every
 > process time before publication.
 
+> [!TIP]
+> **New to the project?** Start with the
+> [User Guide (PDF)](docs/USER_GUIDE.pdf). It covers setting up a computer from
+> scratch, running the study step by step, what every output means, and how to
+> edit the model parameters.
+
 ---
 
 ## Contents
@@ -328,6 +334,7 @@ evaporator-line-des/
 ├── notebooks/analysis.ipynb          ← executed walkthrough
 ├── results/                          ← CSV tables + figures/
 ├── docs/
+│   ├── USER_GUIDE.pdf ← start here: setup, running, outputs, editing parameters
 │   ├── OPERATING_PROCEDURES.md · BUILD_PHASES.md · ASSUMPTIONS.md · MODEL_DESCRIPTION.md
 │   └── process_flow.png · vsm_current.png · vsm_future.png
 └── tests/                            ← 48 verification and regression tests
@@ -351,6 +358,8 @@ Individual steps: `make baseline`, `make scenarios`, `make sweep`,
 
 ## 9. How to operate the model
 
+A beginner-friendly walkthrough (environment setup, every step and output
+explained, parameter editing) is in the [User Guide (PDF)](docs/USER_GUIDE.pdf).
 The full SOP, with pre-run and sign-off checklists, is in
 [`docs/OPERATING_PROCEDURES.md`](docs/OPERATING_PROCEDURES.md).
 
