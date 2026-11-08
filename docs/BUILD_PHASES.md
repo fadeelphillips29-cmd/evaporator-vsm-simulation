@@ -43,7 +43,7 @@ hand-calculated VSM.
 - Hand-calc rows inside one step came out in alphabetical order (flat welding
   before press brake). A sequence key from the config order fixed this.
 - The project replaces the v1 flow-line prototype in the same folder (A33). v1
-  stays in the history at `09a967f`.
+  stays in the history at `9598e54`.
 
 **Outputs.** `config/`, `src/evapsim/config.py`, `docs/process_flow.png`,
 `docs/ASSUMPTIONS.md`, `results/vsm_hand_calc.csv`.
@@ -456,8 +456,7 @@ the units moved into the tile titles and resource names are shortened.
 ## Phase 10: Documentation and polish
 
 **What was done.** README, MODEL_DESCRIPTION, OPERATING_PROCEDURES, this
-file, the executed notebook, the Makefile, and the CI workflows (project-level
-and repository root). `evapsim.report` writes every results table in the
+file, the executed notebook, the Makefile, and the CI workflow (`.github/workflows/ci.yml`). `evapsim.report` writes every results table in the
 README and docs from `results/*.csv`.
 
 **Problems and fixes**

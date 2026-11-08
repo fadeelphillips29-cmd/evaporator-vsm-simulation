@@ -123,7 +123,7 @@ This table is generated from `config/line_parameters.yaml` by `make report`.
 
 | ID | Assumption / decision | Rationale |
 |---|---|---|
-| A33 | This is **version 2** of `evaporator-line-des` and it replaces the earlier flow-line prototype (v1, still in the git history at commit `09a967f`). It lives in a sub-folder of an existing repository, so there was no new `git init`. A root-level CI workflow runs the checks inside the folder. | The brief's "git init" does not apply inside an existing repository. |
+| A33 | This is **version 2** of the project (package `evapsim`, originally developed as `evaporator-line-des`) and it replaces the earlier flow-line prototype (v1, still in the git history at commit `9598e54`). It was first built in a sub-folder of a portfolio repository and then moved to this standalone repository with its per-phase commit history intact (`git subtree split`). | Keeps the build history while giving the project its own repository and CI. |
 | A34 | Sensitivity and sweep runs use 100 replications per point (`simulation.sensitivity_replications`) instead of 300. All points are paired through CRN. | Paired differences are precise at n = 100. Runtime stays reasonable. |
 
 ## 8. Calibration and analytic cross-checks (added in Phase 6)

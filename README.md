@@ -2,7 +2,7 @@
 
 **A VSM-based stochastic network model of an evaporator line and its sheet-metal and outsourced feeder flows. It reproduces the hand-calculated VSM, ranks the bottlenecks and compares improvement scenarios with statistical confidence.**
 
-[![CI](https://github.com/fadeelphillips29-cmd/facility-materials-handling-optimization/actions/workflows/evaporator-line-des-ci.yml/badge.svg)](https://github.com/fadeelphillips29-cmd/facility-materials-handling-optimization/actions/workflows/evaporator-line-des-ci.yml)
+[![CI](https://github.com/fadeelphillips29-cmd/evaporator-vsm-simulation/actions/workflows/ci.yml/badge.svg)](https://github.com/fadeelphillips29-cmd/evaporator-vsm-simulation/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/python-3.11%2B-blue)
 ![License: MIT](https://img.shields.io/badge/license-MIT-green)
 ![SimPy](https://img.shields.io/badge/DES-SimPy-orange)
@@ -336,8 +336,8 @@ evaporator-line-des/
 ## 8. Installation and quick start
 
 ```bash
-git clone https://github.com/fadeelphillips29-cmd/facility-materials-handling-optimization.git
-cd facility-materials-handling-optimization/evaporator-line-des
+git clone https://github.com/fadeelphillips29-cmd/evaporator-vsm-simulation.git
+cd evaporator-vsm-simulation
 python -m venv .venv && source .venv/bin/activate      # Windows: .venv\Scripts\activate
 make setup          # requirements + editable install
 make test           # ruff-clean code, 48 tests

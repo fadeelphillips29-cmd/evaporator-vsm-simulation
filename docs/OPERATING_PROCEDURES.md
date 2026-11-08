@@ -31,8 +31,8 @@ Allow about 400 MB of disk space for the dependencies.
 2.2 Install:
 
 ```bash
-git clone <repository-url>
-cd <repository>/evaporator-line-des
+git clone https://github.com/fadeelphillips29-cmd/evaporator-vsm-simulation.git
+cd evaporator-vsm-simulation
 python -m venv .venv && source .venv/bin/activate     # Windows: .venv\Scripts\activate
 make setup
 make lint test                                        # must be green before any run
