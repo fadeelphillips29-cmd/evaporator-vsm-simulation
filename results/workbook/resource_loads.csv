@@ -1,0 +1,8 @@
+resource,label,servers,crew,operations,min_per_eva,min_per_eva_with_rework,capacity_eva_per_week,utilisation_at_demand,utilisation_with_rework,rank
+operator_2,Operator 2,1,1,weld_hairpins+weld_return_bends+prepare_headers+header_welding,1177.744,1180.244,1.9232,0.78,0.7816,1
+operator_1,Operator 1,1,1,fin_press+boxing+trim_tubes+steeking+expansion,1054.47,1054.47,2.148,0.6983,0.6983,2
+fa_bay_1,FA Bay 1,2,1,complete_assembly+plenum_assembly+drip_tray_assembly,617.647,617.647,7.3343,0.2045,0.2045,3
+operator_6,Operator 6,1,1,flat_welding+drip_tray_weld,88.235,88.235,25.6701,0.0584,0.0584,4
+operator_4,Operator 4,1,1,pressure_test+dye_penetration_test,88.235,89.9507,25.6701,0.0584,0.0596,5
+operator_3,Operator 3,1,1,wash,52.941,52.941,42.7835,0.0351,0.0351,6
+operator_5,Operator 5,1,1,press_brake,47.059,47.059,48.1311,0.0312,0.0312,7

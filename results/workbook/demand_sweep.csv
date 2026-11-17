@@ -1,0 +1,7 @@
+demand,case,TH,LT_mean_d,LT_P90_d,WIP,operator_2,operator_1
+1.0,"lot 3, transfer batch 3",0.995,24.383,27.576,4.733,0.521,0.468
+1.5,"lot 3, transfer batch 3",1.485,27.987,32.428,8.179,0.779,0.698
+1.75,"lot 3, transfer batch 3",1.718,32.52,38.949,11.153,0.903,0.814
+1.85,"lot 3, transfer batch 3",1.774,36.432,44.095,13.274,0.945,0.858
+2.0,"lot 3, transfer batch 3",1.802,45.272,56.81,17.926,0.984,0.918
+1.5,transfer batch 1 (one-piece flow),1.499,21.352,25.106,5.878,0.78,0.699

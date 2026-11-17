@@ -12,6 +12,7 @@ from __future__ import annotations
 
 import copy
 import math
+import os
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
@@ -20,15 +21,19 @@ import yaml
 
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 CONFIG_DIR = PROJECT_ROOT / "config"
-DEFAULT_LINE_FILE = CONFIG_DIR / "line_parameters.yaml"
+# EVAPSIM_CONFIG / EVAPSIM_RESULTS (set by the CLI's --config / --out) point the
+# pipeline at another input file and results folder, e.g. one imported from Excel.
+DEFAULT_LINE_FILE = Path(os.environ.get("EVAPSIM_CONFIG", CONFIG_DIR / "line_parameters.yaml"))
 DEFAULT_SCENARIO_FILE = CONFIG_DIR / "scenarios.yaml"
-RESULTS_DIR = PROJECT_ROOT / "results"
+RESULTS_DIR = Path(os.environ.get("EVAPSIM_RESULTS", PROJECT_ROOT / "results"))
 FIGURES_DIR = RESULTS_DIR / "figures"
 DATA_DIR = PROJECT_ROOT / "data"
 DOCS_DIR = PROJECT_ROOT / "docs"
 
 DEPARTMENTS = ("engineering", "evaporator", "sheet_metal", "outsourced", "assembly")
 SOURCES = ("time study", "estimate", "assumed")
+# Operations the model includes only when they are defined in the YAML.
+OPTIONAL_OPS = ("dye_penetration_test",)   # drip tray: after welding, before assembly
 
 
 class ConfigError(ValueError):
@@ -268,6 +273,8 @@ def validate(cfg: LineConfig) -> None:
                     "press_brake", "flat_welding", "plenum_assembly", "drip_tray_weld",
                     "drip_tray_assembly", "complete_assembly"}
     missing = required_ops - set(r["operations"])
+    extra = set(r["operations"]) - required_ops - set(OPTIONAL_OPS)
+    need(not extra, f"unknown operations: {sorted(extra)}")
     need(not missing, f"operations missing: {sorted(missing)}")
     for key in ("engineering_release", "procurement_sheet_metal", "procurement_tubing",
                 "drip_tray_external", "coating"):

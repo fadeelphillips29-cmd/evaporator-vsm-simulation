@@ -1,0 +1,24 @@
+step,station,label,department,source,resource,operators,per_eva_min,per_lot_min,labour_min_per_eva,t_op_min,n_ops,ops_per_min,oee,capacity_eva_per_shift,capacity_eva_per_week,station_utilisation_at_demand,resource_utilisation_at_demand,is_bottleneck_resource,lead_time_days
+1,engineering_release,Engineering drawing release,engineering,assumed,(calendar delay),0,,453.0,,,,,,,,,,,1.0
+2,procurement_sheet_metal,Procure sheet metal (cut to size),outsourced,estimate,(calendar delay),0,,90.6,,,,,,,,,,,0.2
+2,procurement_tubing,Procure tubing,outsourced,estimate,(calendar delay),0,,906.0,,,,,,,,,,,2.0
+3,fin_press,Fin Press (setup + punching),evaporator,estimate,operator_1,1,391.143,1173.4291,391.143,0.1429,1444.0,7.0,0.5274,1.1581,5.7907,0.259,0.6983,False,
+5,boxing,Boxing (tube prep),evaporator,estimate,operator_1,1,27.059,81.177,27.059,,,,,16.7412,83.706,0.0179,0.6983,False,
+6,trim_tubes,Trim tubes,evaporator,estimate,operator_1,1,272.941,818.823,272.941,,,,,1.6597,8.2985,0.1808,0.6983,False,
+6,weld_hairpins,Weld hairpins,evaporator,time study,operator_2,1,360.889,1082.667,360.889,,,,,1.2552,6.2762,0.239,0.78,True,
+7,steeking,Steeking,evaporator,estimate,operator_1,1,272.942,818.826,272.942,,,,,1.6597,8.2985,0.1808,0.6983,False,
+8,weld_return_bends,Weld return bends,evaporator,estimate,operator_2,1,514.51,1543.53,514.51,,,,,0.8804,4.4022,0.3407,0.78,True,
+9,expansion,Hydraulic expanding,evaporator,time study,operator_1,1,90.385,271.155,90.385,,,,,5.0119,25.0595,0.0599,0.6983,False,
+10,prepare_headers,Prepare headers,evaporator,estimate,operator_2,1,105.882,317.646,105.882,,,,,4.2783,21.3917,0.0701,0.78,True,
+10,header_welding,Header welding,evaporator,time study,operator_2,1,196.463,589.389,196.463,,,,,2.3058,11.5289,0.1301,0.78,True,
+11,wash,Wash bay,evaporator,estimate,operator_3,1,52.941,158.823,52.941,,,,,8.5567,42.7835,0.0351,0.0351,False,
+12,pressure_test,Pressure test,evaporator,estimate,operator_4,1,41.176,123.528,41.176,,,,,11.0016,55.0078,0.0273,0.0584,False,
+13,press_brake,Plenum: press brake,sheet_metal,estimate,operator_5,1,47.059,141.177,47.059,,,,,9.6262,48.1311,0.0312,0.0312,False,
+13,flat_welding,Plenum: flat welding,sheet_metal,estimate,operator_6,1,47.059,141.177,47.059,,,,,9.6262,48.1311,0.0312,0.0584,False,
+13,plenum_assembly,Plenum assembly,sheet_metal,estimate,fa_bay_1,2,29.412,88.236,29.412,,,,,30.8038,154.0188,0.0097,0.2045,False,
+14,drip_tray_external,Drip tray: external bend & punch,outsourced,estimate,(calendar delay),0,,2718.0,,,,,,,,,,,6.0
+14,drip_tray_weld,Drip tray: weld,sheet_metal,estimate,operator_6,1,41.176,123.528,41.176,,,,,11.0016,55.0078,0.0273,0.0584,False,
+14,dye_penetration_test,Dye penetration test (DPT),sheet_metal,estimate,operator_4,1,47.059,141.177,47.059,,,,,9.6262,48.1311,0.0312,0.0584,False,
+14,drip_tray_assembly,Drip tray assembly,sheet_metal,estimate,fa_bay_1,2,23.529,70.587,23.529,,,,,38.5057,192.5284,0.0078,0.2045,False,
+15,coating,Powder coating / galvanising,outsourced,estimate,(calendar delay),0,,2491.5,,,,,,,,,,,5.5
+15,complete_assembly,Complete assembly,assembly,estimate,fa_bay_1,2,564.706,1694.118,564.706,,,,,1.6044,8.0219,0.187,0.2045,False,

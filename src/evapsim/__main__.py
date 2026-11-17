@@ -19,8 +19,10 @@ report       regenerate README/docs tables from config and results
 from __future__ import annotations
 
 import argparse
+import os
 import sys
 from collections.abc import Callable
+from pathlib import Path
 
 STEPS: dict[str, Callable[[argparse.Namespace], None]] = {}
 
@@ -130,12 +132,20 @@ def build_parser() -> argparse.ArgumentParser:
     p.add_argument("--quick", action="store_true", help="quick mode -> results/quick/")
     p.add_argument("--reps", type=int, default=None, help="override replication count")
     p.add_argument("--workers", type=int, default=None, help="worker processes")
+    p.add_argument("--config", default=None,
+                   help="input YAML instead of config/line_parameters.yaml")
+    p.add_argument("--out", default=None, help="results folder instead of results/")
     return p
 
 
 def main(argv: list[str] | None = None) -> int:
     """Entry point."""
     args = build_parser().parse_args(argv)
+    # set before the step imports evapsim.config, which reads these at import time
+    if args.config:
+        os.environ["EVAPSIM_CONFIG"] = str(Path(args.config).resolve())
+    if args.out:
+        os.environ["EVAPSIM_RESULTS"] = str(Path(args.out).resolve())
     STEPS[args.step](args)
     return 0
 

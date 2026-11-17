@@ -37,7 +37,7 @@ import pandas as pd
 import simpy
 
 from . import equations as eq
-from .config import LineConfig, apply_overrides
+from .config import OPTIONAL_OPS, LineConfig, apply_overrides
 from .distributions import lognormal_from_z, variate_from_z
 from .resources import BUSY, CHANGEOVER, DOWN, Gate, TimeAverage, TimedResource, Window
 
@@ -146,10 +146,13 @@ class EvaporatorModel:
         self.fp_ttf = (math.inf if self.det else
                        float(self.rng_fp.standard_exponential()) * self.fp["MTBF"])
         self.reel_left = self.fp["R"]
-        self.op_mean = {op: cfg.op_mean_min(op) for op in OPS}
-        self.op_cv = {op: cfg.op_cv(op) for op in OPS}
-        self.op_fam = {op: cfg.op_family(op) for op in OPS}
-        self.op_res = {op: cfg.operations[op]["resource"] for op in OPS}
+        # optional operations are appended, so configurations without them draw
+        # exactly the same random numbers as before (common random numbers)
+        self.ops = OPS + [op for op in OPTIONAL_OPS if op in cfg.operations]
+        self.op_mean = {op: cfg.op_mean_min(op) for op in self.ops}
+        self.op_cv = {op: cfg.op_cv(op) for op in self.ops}
+        self.op_fam = {op: cfg.op_family(op) for op in self.ops}
+        self.op_res = {op: cfg.operations[op]["resource"] for op in self.ops}
         self.rw = cfg.rework
         self.flags = cfg.raw["flags"]
         rel = cfg.raw["release"]
@@ -169,12 +172,13 @@ class EvaporatorModel:
     def _new_order(self, oid: int) -> Order:
         r, B = self.rng_orders, self.B
         return Order(oid=oid, arrival=self.env.now,
-                     z_ops=r.standard_normal((B, len(OPS))), z_delay=r.standard_normal(len(DELAYS)),
+                     z_ops=r.standard_normal((B, len(self.ops))),
+                     z_delay=r.standard_normal(len(DELAYS)),
                      z_coat=r.standard_normal(B), u_test=r.random((B, MAX_TESTS)),
                      z_rework=r.standard_normal((B, MAX_TESTS)))
 
     def _op_time(self, o: Order, i: int, op: str) -> float:
-        j = OPS.index(op)
+        j = self.ops.index(op)
         return variate_from_z(self.op_fam[op], self.op_mean[op], self.op_cv[op],
                               float(o.z_ops[i, j]))
 
@@ -353,6 +357,8 @@ class EvaporatorModel:
 
     def _drip_tray_eva(self, o: Order, i: int, g: dict[str, Gate]):  # generator
         yield from self._work(o, i, "drip_tray_weld")
+        if "dye_penetration_test" in self.op_mean:
+            yield from self._work(o, i, "dye_penetration_test")
         g["dtw"].done(i)
         yield g["dtw"].event(i)
         yield from self._work(o, i, "drip_tray_assembly")

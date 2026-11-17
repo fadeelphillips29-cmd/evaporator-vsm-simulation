@@ -1,0 +1,10 @@
+metric,target_rel_half_width_pct,required_replications,replications_run,achieved_rel_half_width_pct
+lt_mean_days,0.5,319,300,0.5149
+lt_mean_days,1.0,82,300,0.5149
+lt_mean_days,2.0,23,300,0.5149
+lt_p90_days,0.5,878,300,0.8573
+lt_p90_days,1.0,222,300,0.8573
+lt_p90_days,2.0,58,300,0.8573
+throughput_eva_week,0.5,459,300,0.6191
+throughput_eva_week,1.0,117,300,0.6191
+throughput_eva_week,2.0,31,300,0.6191

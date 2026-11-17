@@ -1,0 +1,4 @@
+resource,count,share,method
+operator_2,300,1.0,highest active share
+operator_1,208,0.6933,longest mean queue
+operator_2,92,0.3067,longest mean queue

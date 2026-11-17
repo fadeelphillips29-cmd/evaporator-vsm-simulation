@@ -1,0 +1,15 @@
+metric,label,unit,mean,sd,ci_half_width,ci_low,ci_high,n
+throughput_eva_week,Throughput,EVA/week,1.48949,0.08117,0.00922,1.48027,1.49871,300
+attainment,Demand attainment,TH / demand,0.99299,0.05411,0.00615,0.98684,0.99914,300
+weekly_compliance,Weekly demand compliance,share of weeks,0.47513,0.03009,0.00342,0.47171,0.47855,300
+lt_mean_days,"Order lead time, mean",working days,27.96811,1.26757,0.14402,27.82409,28.11213,300
+lt_p50_days,"Order lead time, P50",working days,27.67733,1.22796,0.13952,27.53782,27.81685,300
+lt_p90_days,"Order lead time, P90",working days,32.38164,2.4433,0.2776,32.10404,32.65924,300
+lt_p95_days,"Order lead time, P95",working days,33.71054,2.78726,0.31668,33.39385,34.02722,300
+on_time,On-time delivery,share of orders,0.0,0.0,0.0,0.0,0.0,300
+wip_total,WIP in system,EVA,8.15833,0.70425,0.08002,8.07832,8.23835,300
+littles_wip,WIP from Little's law,EVA,8.11971,0.74338,0.08446,8.03525,8.20417,300
+fpy_test,First-pass yield at pressure test,fraction,0.95984,0.02365,0.00269,0.95715,0.96253,300
+va_ratio,Value-added ratio,fraction,0.25415,0.01032,0.00117,0.25298,0.25533,300
+va_min_per_eva,Value-added time,min/EVA,3127.41513,35.95438,4.08508,3123.33005,3131.50021,300
+bottleneck_active,Bottleneck active share,fraction,0.77838,0.04407,0.00501,0.77337,0.78339,300

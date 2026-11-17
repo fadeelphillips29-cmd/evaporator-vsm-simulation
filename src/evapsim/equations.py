@@ -325,7 +325,8 @@ def deterministic_lead_time(cfg: LineConfig) -> dict[str, float]:
     fw, _ = _flow(pb, m("flat_welding"), 0.0, tb)
     pa, sma_free = _flow(fw, m("plenum_assembly"), 0.0, tb)
     ext = [t_sheet + lt("drip_tray_external")] * B
-    dw, _ = _flow(ext, m("drip_tray_weld"), 0.0, tb)
+    dpt = m("dye_penetration_test") if "dye_penetration_test" in cfg.operations else 0.0
+    dw, _ = _flow(ext, m("drip_tray_weld") + dpt, 0.0, tb)
     da, _ = _flow(dw, m("drip_tray_assembly"), sma_free, tb)
     if min(dw) < sma_free:
         raise ValueError("shared sheet-metal assembler overlap: CP formula not valid")

@@ -1,0 +1,8 @@
+scenario,resource,label,servers,busy,starved,blocked,down,changeover,active,mean_wait_min
+S0,operator_2,Operator 2,1.0,0.77838,0.22162,0.0,0.0,0.0,0.77838,654.22911
+S0,operator_1,Operator 1,1.0,0.69796,0.30204,0.0,0.0,0.0,0.69796,680.34136
+S0,fa_bay_1,FA Bay 1,2.0,0.20339,0.79661,0.0,0.0,0.0,0.20339,101.52322
+S0,operator_4,Operator 4,1.0,0.0594,0.9406,0.0,0.0,0.0,0.0594,25.39523
+S0,operator_6,Operator 6,1.0,0.05829,0.94171,0.0,0.0,0.0,0.05829,45.14793
+S0,operator_3,Operator 3,1.0,0.03486,0.96514,0.0,0.0,0.0,0.03486,52.92054
+S0,operator_5,Operator 5,1.0,0.03109,0.96891,0.0,0.0,0.0,0.03109,46.96667
